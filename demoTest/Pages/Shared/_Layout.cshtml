@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Learning Management System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/demoTest.styles.css" asp-append-version="true" />
+    <style>
+        /* Prevent body content from hiding under fixed navbar */
+        body {
+            padding-top: 70px; /* adjust to navbar height */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Added fixed-top here -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow fixed-top">
+            <div class="container">
+                <img src="~/images/lmsLogo.png" alt="Logo" width="40" height="40" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Conatct">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    @* <img src="~/images/user.png" alt="User" width="35" height="35"
+                         data-bs-toggle="modal" data-bs-target="#userModal"
+                         style="cursor:pointer;" /> *@
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-dark text-decoration-none"
+                           id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="~/images/user.png" alt="User" width="35" height="35" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" asp-page="/Profile">Profile</a></li>
+                            <li><a class="dropdown-item" asp-page="/Privacy&Policy">Policy</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-page="/Index">Logout</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+            <!-- User Modal -->
+            @* <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="userModalLabel">User Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <!-- Example: You can put Login/Signup or Profile details here -->
+                            <p><strong>Username:</strong> Guest</p>
+                            <p><strong>Email:</strong> guest@example.com</p>
+
+                            <a asp-page="/Login" class="btn btn-primary">Login</a>
+                            <a asp-page="/Register" class="btn btn-secondary">Register</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div> *@
+
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - demoTest - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

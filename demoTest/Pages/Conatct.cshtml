@@ -1,0 +1,33 @@
+﻿@page
+@model demoTest.Pages.ConatctModel
+@{
+    ViewData["Title"] = "Contact Page";
+}
+
+<div class="text-center">
+    <h2>@ViewData["Title"]</h2>
+    <form   method="post" onsubmit="showLoader()">
+        <div class="w-25 text-center">
+            <label>Name</label>
+            <input type="text" name="Name" class="form-control" />
+        </div>
+        <div class="w-25">
+            <label>Email</label>
+            <input type="email" name="Email" class="form-control" />
+        </div>
+        <div class="w-25">
+            <label>Phone</label>
+            <input type="text" name="Phone" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="loader" class="spinner-border text-primary text-center" role="status" style="display:none;">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <script>
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+        }
+    </script>
+</div>

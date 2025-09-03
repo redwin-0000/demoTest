@@ -1,0 +1,12 @@
+﻿@page
+@model demoTest.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile Page";
+}
+
+<div class="text-center">
+    <h2>@ViewData["Title"]</h2>
+    <p><strong>Name:</strong> @(string.IsNullOrEmpty(Model.Name) ? "No Name display" : Model.Name)</p>
+    <p><strong>Email:</strong> @(string.IsNullOrEmpty(Model.Email) ? "No Email" : Model.Email)</p>
+    <p><strong>Phone:</strong> @(string.IsNullOrEmpty(Model.Phone) ? "No Contact" : Model.Phone)</p>
+</div>
