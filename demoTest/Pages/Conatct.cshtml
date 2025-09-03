@@ -25,18 +25,20 @@
     <div id="loader" class="spinner-border text-primary text-center" role="status" style="display:none;">
         <span class="visually-hidden">Loading...</span>
     </div>
+
     <script>
             function saveDataLocalStorage() {
             // Collect form values
             const name = document.getElementById("Name").value;
             const email = document.getElementById("Email").value;
             const phone = document.getElementById("Phone").value;
-            console.log(name,email,phone,"=============================")
+            console.log(name,email,phone,"=============================");
             // Save to localStorage
             localStorage.setItem("Name", name);
             localStorage.setItem("Email", email);
             localStorage.setItem("Phone", phone);
         }
+            // function to show loader when submit button is hit
         function showLoader() {
             document.getElementById("loader").style.display = "block";
         }
