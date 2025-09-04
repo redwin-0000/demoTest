@@ -27,18 +27,19 @@
     </div>
 
     <script>
-            function saveDataLocalStorage() {
-            // Collect form values
-            const name = document.getElementById("Name").value;
-            const email = document.getElementById("Email").value;
-            const phone = document.getElementById("Phone").value;
-            console.log(name,email,phone,"=============================");
-            // Save to localStorage
-            localStorage.setItem("Name", name);
-            localStorage.setItem("Email", email);
-            localStorage.setItem("Phone", phone);
+             function saveCustomerData() {
+            // Create JSON object
+            const customer = {
+                name: document.getElementById("Name").value,
+                email: document.getElementById("Email").value,
+                phone: document.getElementById("Phone").value
+            };
+
+            // Convert object to JSON string and save in localStorage
+            localStorage.setItem("CustomerData", JSON.stringify(customer));
         }
-            // function to show loader when submit button is hit
+
+         // function to show loader when submit button is hit
         function showLoader() {
             document.getElementById("loader").style.display = "block";
         }
